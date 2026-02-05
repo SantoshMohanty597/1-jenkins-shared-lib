@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+
+    parameters{
+        string(name: 'REPO_TRIGGER', defaultValue:'PROD')
+    }
+
+    stages{
+        stage('Trigger Build') {
+            steps{
+                echo "Triggered From Different Repository: ${params.REPO_TRIGGER}"
+            }
+        }   
+    }
+}
