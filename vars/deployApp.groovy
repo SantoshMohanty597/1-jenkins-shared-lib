@@ -7,3 +7,11 @@ def call(String env) {
         echo "Non-prod deployment"
     }
 }
+
+
+def call(Map config = [:]) {
+    def env = config.env ?: 'dev'
+    def version = config.version ?: 'latest'
+
+    echo "Deploying ${version} to ${env}"
+}
